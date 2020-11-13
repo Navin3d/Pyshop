@@ -1,0 +1,22 @@
+<head>
+    <link rel="shortcut icon" href="https://scontent.fblr15-1.fna.fbcdn.net/v/t1.0-9/p843x403/124298280_1785924274880166_1717830896563346364_o.jpg?_nc_cat=102&ccb=2&_nc_sid=730e14&_nc_ohc=PzDsaPjqk7AAX99WnyV&_nc_ht=scontent.fblr15-1.fna&tp=6&oh=a24fca06998dac95a2174eb34bc1cec0&oe=5FD412B4">
+</head>
+{% extends 'base.html' %}
+    {% block content %}
+        <h1 style="text-align:center; color: white">Products</h1>
+        <div class="row" style="background: transparent">
+            {% for product in products %}
+            <div class="col" style="background: transparent">
+                <div class="card" style="width: 18rem; background: transparent">
+                  <img class="card-img-top" src="{{ product.image_url }}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title" style="color: white">{{ product.name }}</h5>
+                    <p class="card-text" style="color: white">Price : $ {{ product.price }}</p>
+                    <p class="card-text" style="color: white">Stock : {{ product.stock }}</p>
+                    <a href="{{ product.link }}" class="btn btn-primary">Add to Cart</a>
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
